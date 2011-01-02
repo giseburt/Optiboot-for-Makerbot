@@ -12,4 +12,6 @@ make atmega328_pro8
 make sanguino
 make mega
 make luminet
+make ec22
+make ec3x
 
