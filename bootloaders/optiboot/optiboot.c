@@ -247,8 +247,37 @@ int main(void) {
   // Set up watchdog to trigger after 500ms
   watchdogConfig(WATCHDOG_500MS);
 
+#if defined(EXTRUDER_CONTROLLER_V22)
+  // Bring MOSFETs low before too much time has passed
+  PORTB &= ~_BV(3) & ~_BV(4);
+  DDRB |= _BV(3) | _BV(4) | /* LED pin: */_BV(5);
+  PORTC &= ~_BV(1);
+  DDRC |= _BV(1);
+  DDRD &= ~_BV(PIND0);
+#else
+#if defined(EXTRUDER_CONTROLLER_V3X)
+	// Bring MOSFETs and motor driver low before too much time has passed
+	PORTB &= ~_BV(1) & ~_BV(2);
+	DDRB |= _BV(1) | _BV(2) | /* LED pin: */_BV(LED);
+	PORTD &= ~_BV(5) & ~_BV(6);
+	DDRD |= _BV(5) | _BV(6);
+	/* set pin direction for bootloader pin and enable pullup */
+	/* for ATmega128, two pins need to be initialized */
+#else
   /* Set LED pin as output */
   LED_DDR |= _BV(LED);
+#endif
+#endif
+
+  /* Enable internal pull-up resistor on pin D0 (RX), in order
+  to supress line noise that prevents the bootloader from
+  timing out (DAM: 20070509) */
+#if !defined(NO_RX_PULLUP)
+  PORTD |= _BV(PIND0);
+#else
+  PORTD &= ~_BV(PIND0);
+#endif
+
 
 #ifdef SOFT_UART
   /* Set TX pin as output */

@@ -20,7 +20,7 @@
 PROGRAM    = optiboot
 
 # enter the parameters for the avrdude isp tool
-ISPTOOL	   = stk500v2
+ISPTOOL	   = usbtiny
 ISPPORT	   = usb
 ISPSPEED   = -b 115200
 
@@ -119,6 +119,35 @@ diecimila_isp: HFUSE = DD # 2.7V brownout
 diecimila_isp: LFUSE = FF # Low power xtal (16MHz) 16KCK/14CK+65ms
 diecimila_isp: EFUSE = 02 # 512 byte boot
 diecimila_isp: isp
+
+ec22: TARGET = ec22
+ec22: CFLAGS +=  '-DEXTRUDER_CONTROLLER_V22=1' '-DLED_START_FLASHES=0' '-DBAUD_RATE=115200' '-DLED_DATA_FLASH=1'
+ec22: AVR_FREQ = 16000000L 
+ec22: $(PROGRAM)_ec22.hex
+ec22: $(PROGRAM)_ec22.lst
+
+ec22_isp: ec22
+ec22_isp: TARGET = ec22
+ec22_isp: HFUSE = DD
+ec22_isp: LFUSE = EE
+# 512 byte boot
+ec22_isp: EFUSE = 02
+ec22_isp: isp
+
+
+ec3x: TARGET = ec3x
+ec3x: CFLAGS +=  '-DEXTRUDER_CONTROLLER_V3X=1' '-DNO_RX_PULLUP=1' '-DLED_START_FLASHES=0' '-DBAUD_RATE=115200' '-DLED_DATA_FLASH=1'
+ec3x: AVR_FREQ = 16000000L 
+ec3x: $(PROGRAM)_ec3x.hex
+ec3x: $(PROGRAM)_ec3x.lst
+
+ec3x_isp: ec3x
+ec3x_isp: TARGET = ec3x
+ec3x_isp: HFUSE = DD
+ec3x_isp: LFUSE = EE
+# 512 byte boot
+ec3x_isp: EFUSE = 02
+ec3x_isp: isp
 
 atmega328: TARGET = atmega328
 atmega328: MCU_TARGET = atmega328p

@@ -38,6 +38,74 @@ diecimilao.build.core=arduino
 
 ##############################################################
 
+ec22o.name=[Optiboot] Extruder Controller 2.2
+ec22o.upload.protocol=stk500
+ec22o.upload.maximum_size=15360
+ec22o.upload.speed=115200
+ec22o.bootloader.low_fuses=0xee
+ec22o.bootloader.high_fuses=0xdd
+ec22o.bootloader.extended_fuses=0x02
+ec22o.bootloader.path=optiboot
+ec22o.bootloader.file=optiboot_ec22.hex
+ec22o.bootloader.unlock_bits=0x3F
+ec22o.bootloader.lock_bits=0x0F
+ec22o.build.mcu=atmega168
+ec22o.build.f_cpu=16000000L
+ec22o.build.core=arduino
+
+##############################################################
+
+ec3xo.name=[Optiboot] Extruder Controller 3.x
+ec3xo.upload.protocol=stk500
+ec3xo.upload.maximum_size=15360
+ec3xo.upload.speed=115200
+ec3xo.bootloader.low_fuses=0xee
+ec3xo.bootloader.high_fuses=0xdd
+ec3xo.bootloader.extended_fuses=0x02
+ec3xo.bootloader.path=optiboot
+ec3xo.bootloader.file=optiboot_ec3x.hex
+ec3xo.bootloader.unlock_bits=0x3F
+ec3xo.bootloader.lock_bits=0x0F
+ec3xo.build.mcu=atmega168
+ec3xo.build.f_cpu=16000000L
+ec3xo.build.core=arduino
+
+##############################################################
+
+ec22o.name=[Optiboot] Extruder Controller 2.2
+ec22o.upload.protocol=stk500
+ec22o.upload.maximum_size=15360
+ec22o.upload.speed=115200
+ec22o.bootloader.low_fuses=0xee
+ec22o.bootloader.high_fuses=0xdd
+ec22o.bootloader.extended_fuses=0x02
+ec22o.bootloader.path=optiboot
+ec22o.bootloader.file=optiboot_ec22.hex
+ec22o.bootloader.unlock_bits=0x3F
+ec22o.bootloader.lock_bits=0x0F
+ec22o.build.mcu=atmega168
+ec22o.build.f_cpu=16000000L
+ec22o.build.core=arduino
+
+##############################################################
+
+ec3xo.name=[Optiboot] Extruder Controller 3.x
+ec3xo.upload.protocol=stk500
+ec3xo.upload.maximum_size=15360
+ec3xo.upload.speed=115200
+ec3xo.bootloader.low_fuses=0xee
+ec3xo.bootloader.high_fuses=0xdd
+ec3xo.bootloader.extended_fuses=0x02
+ec3xo.bootloader.path=optiboot
+ec3xo.bootloader.file=optiboot_ec3x.hex
+ec3xo.bootloader.unlock_bits=0x3F
+ec3xo.bootloader.lock_bits=0x0F
+ec3xo.build.mcu=atmega168
+ec3xo.build.f_cpu=16000000L
+ec3xo.build.core=arduino
+
+##############################################################
+
 minio.name=[Optiboot] Arduino Mini
 minio.upload.protocol=stk500
 minio.upload.maximum_size=15360
