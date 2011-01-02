@@ -1,0 +1,8 @@
+This is optiboot altered for Makerbot Electronics. Optiboot can be found here:
+http://code.google.com/p/optiboot/
+
+This is based on the SVN repo found at: https://optiboot.googlecode.com/svn/trunk/optiboot
+
+This is still very much experimental. I have tested it, but only with uploading the firmware from the command line, not from RepG.
+
+-Rob Giseburt
